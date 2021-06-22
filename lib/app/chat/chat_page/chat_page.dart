@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gdg_cloud_saitama_sample_chat_app/app/chat/chat_page/chat_page_view_model.dart';
+import 'package:gdg_cloud_saitama_sample_chat_app/colors.dart';
 import 'package:gdg_cloud_saitama_sample_chat_app/constants.dart';
 
 import '../chat_model.dart';
@@ -12,7 +13,9 @@ class ChatPage extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final viewModel = watch(chatPageViewModelProvider);
     return Scaffold(
+      backgroundColor: FireColors.firebaseNavy,
       appBar: AppBar(
+        backgroundColor: FireColors.firebaseNavy,
         title: Text('chat sample'),
       ),
       body: Column(
@@ -62,7 +65,6 @@ class _ChatBubble extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        // TODO firstUserとsecondUserでここをswitch
         mainAxisAlignment: isFirstUser(chatModel.senderId)
             ? MainAxisAlignment.start
             : MainAxisAlignment.end,
@@ -82,7 +84,9 @@ class _ChatBubble extends StatelessWidget {
                     bottomRight: Radius.circular(30),
                   )),
             elevation: 3,
-            color: isFirstUser(chatModel.senderId) ? Colors.grey : Colors.teal,
+            color: isFirstUser(chatModel.senderId)
+                ? FireColors.firebaseGray
+                : FireColors.firebaseCoral,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(chatModel.text),
@@ -123,8 +127,10 @@ class _BottomTextFieldWithSendButton extends ConsumerWidget {
             Expanded(
               flex: 1,
               child: ElevatedButton(
+                style:
+                    ElevatedButton.styleFrom(primary: FireColors.firebaseBlue),
                 onPressed: () async =>
-                    await viewModel.setChatData(Constants.secondUserId),
+                    await viewModel.setChatData(Constants.firstUserId),
                 child: Text('Send'),
               ),
             )
