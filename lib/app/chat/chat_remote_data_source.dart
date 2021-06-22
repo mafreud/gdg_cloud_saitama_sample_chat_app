@@ -13,19 +13,19 @@ class ChatRemoteDataSource {
 
   final CloudFirestoreService _cloudFirestoreService;
 
-  Future<void> setChatData(Map<String, dynamic> data) async {
-    await _cloudFirestoreService.setData(
-      path: FirestorePath.chatRoomPath(
-          chatRoomId: data['chatRoomId'], chatId: data['id']),
-      data: data,
-    );
-  }
+  // Future<void> setChatData(Map<String, dynamic> data) async {
+  //   await _cloudFirestoreService.setData(
+  //     path: FirestorePath.chatRoomPath(
+  //         chatRoomId: data['chatRoomId'], chatId: data['id']),
+  //     data: data,
+  //   );
+  // }
 
-  Stream<List<ChatModel>> chatListStream(String chatRoomId) {
-    return _cloudFirestoreService.collectionStream(
-      path: FirestorePath.chatRoomDomain(chatRoomId),
-      builder: (data, _) => ChatModel.fromMap(data!),
-      queryBuilder: (query) => query.orderBy('createdAt', descending: true),
-    );
-  }
+  // Stream<List<ChatModel>> chatListStream(String chatRoomId) {
+  //   return _cloudFirestoreService.collectionStream(
+  //     path: FirestorePath.chatRoomDomain(chatRoomId),
+  //     builder: (data, _) => ChatModel.fromMap(data!),
+  //     queryBuilder: (query) => query.orderBy('createdAt', descending: true),
+  //   );
+  // }
 }

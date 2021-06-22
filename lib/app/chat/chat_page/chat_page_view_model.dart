@@ -18,17 +18,17 @@ class ChatPageViewModel extends ChangeNotifier {
   final ChatService _chatService;
   final textEditingController = TextEditingController();
 
-  Future<void> setChatData(String senderId) async {
-    final uuid = const Uuid();
-    final chatId = uuid.v4();
-    final text = textEditingController.text;
-    final chat = ChatModel(
-        chatId, senderId, text, Constants.sampleChatRoomId, DateTime.now());
-    await _chatService.setChatData(chat);
-    textEditingController.clear();
-  }
+  // Future<void> setChatData(String senderId) async {
+  //   final uuid = const Uuid();
+  //   final chatId = uuid.v4();
+  //   final text = textEditingController.text;
+  //   final chat = ChatModel(
+  //       chatId, senderId, text, Constants.sampleChatRoomId, DateTime.now());
+  //   await _chatService.setChatData(chat);
+  //   textEditingController.clear();
+  // }
 
-  Stream<List<ChatModel>> chatListStream(String chatRoomId) {
-    return _chatService.chatListStream(chatRoomId);
-  }
+  // Stream<List<ChatModel>> chatListStream(String chatRoomId) {
+  //   return _chatService.chatListStream(chatRoomId);
+  // }
 }
