@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/app/chat/chat_service.dart';
+import '../chat_service.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../constants.dart';

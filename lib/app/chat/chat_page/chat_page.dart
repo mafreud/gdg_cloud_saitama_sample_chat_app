@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/app/chat/chat_page/chat_page_view_model.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/colors.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/constants.dart';
+import 'chat_page_view_model.dart';
+import '../../../colors.dart';
+import '../../../constants.dart';
 
 import '../chat_model.dart';
-
-// TODO: いい感じの色にする (Firebaseカラーが良さそう)
 
 class ChatPage extends ConsumerWidget {
   @override

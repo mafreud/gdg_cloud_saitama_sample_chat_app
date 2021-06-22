@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/app/chat/chat_model.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/app/chat/chat_remote_data_source.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/app/chat/chat_repository.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/cloud_firestore/cloud_firestore_service.dart';
-import 'package:gdg_cloud_saitama_sample_chat_app/cloud_firestore/firestore_path.dart';
+import 'chat_model.dart';
+import 'chat_remote_data_source.dart';
+import 'chat_repository.dart';
+import '../../cloud_firestore/cloud_firestore_service.dart';
+import '../../cloud_firestore/firestore_path.dart';
 
 final chatServiceProvider = Provider<ChatService>((ref) {
   return ChatService(ref.watch(chatRepositoryProvider));
