@@ -63,18 +63,26 @@ class _ChatBubble extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         // TODO firstUserとsecondUserでここをswitch
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: isFirstUser(chatModel.senderId)
+            ? MainAxisAlignment.start
+            : MainAxisAlignment.end,
         children: [
           Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(30),
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-            ),
+            shape: isFirstUser(chatModel.senderId)
+                ? RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  ))
+                : RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  )),
             elevation: 3,
-            color: Colors.teal,
+            color: isFirstUser(chatModel.senderId) ? Colors.grey : Colors.teal,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(chatModel.text),
@@ -83,6 +91,14 @@ class _ChatBubble extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  bool isFirstUser(String userId) {
+    if (userId == Constants.firstUserId) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
@@ -108,7 +124,7 @@ class _BottomTextFieldWithSendButton extends ConsumerWidget {
               flex: 1,
               child: ElevatedButton(
                 onPressed: () async =>
-                    await viewModel.setChatData(Constants.firstUserId),
+                    await viewModel.setChatData(Constants.secondUserId),
                 child: Text('Send'),
               ),
             )
