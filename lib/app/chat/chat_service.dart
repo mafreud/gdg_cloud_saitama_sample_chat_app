@@ -14,11 +14,11 @@ class ChatService {
 
   final ChatRepository _chatRepository;
 
-  // Future<void> setChatData(ChatModel data) async {
-  //   await _chatRepository.setChatData(data);
-  // }
+  Future<void> setChatData(ChatModel data) async {
+    await _chatRepository.setChatData(data);
+  }
 
-  // Stream<List<ChatModel>> chatListStream(String chatRoomId) {
-  //   return _chatRepository.chatListStream(chatRoomId);
-  // }
+  Stream<List<ChatModel>> chatListStream(String chatRoomId) {
+    return _chatRepository.chatListStream(chatRoomId);
+  }
 }

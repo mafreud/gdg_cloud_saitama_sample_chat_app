@@ -13,11 +13,11 @@ class ChatRepository {
 
   final ChatRemoteDataSource _chatRemoteDataSource;
 
-  // Future<void> setChatData(ChatModel data) async {
-  //   await _chatRemoteDataSource.setChatData(data.toMap());
-  // }
+  Future<void> setChatData(ChatModel data) async {
+    await _chatRemoteDataSource.setChatData(data.toMap());
+  }
 
-  // Stream<List<ChatModel>> chatListStream(String chatRoomId) {
-  //   return _chatRemoteDataSource.chatListStream(chatRoomId);
-  // }
+  Stream<List<ChatModel>> chatListStream(String chatRoomId) {
+    return _chatRemoteDataSource.chatListStream(chatRoomId);
+  }
 }
